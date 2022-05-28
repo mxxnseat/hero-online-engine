@@ -1,3 +1,1 @@
-export class Moveable{
-    
-}
+export class Moveable {}

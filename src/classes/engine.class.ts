@@ -1,3 +1,1 @@
-export class GameEngine{
-    
-}
+export class GameEngine {}
