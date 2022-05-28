@@ -1,0 +1,37 @@
+name: Formats
+
+on: [pull_request]
+
+jobs:
+  lintcommit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Lint commits
+        uses: wagoid/commitlint-github-action@v4.1.1
+        with:
+          configFile: .commitlintrc.json
+          failOnWarnings: true
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install packages
+        run: yarn
+      - name: Run eslint
+        run: yarn lint
+
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install packages
+        run: yarn
+      - name: Run checking format of files
+        run: yarn prettier --config .prettierrc.yml --check '**/*.ts'
