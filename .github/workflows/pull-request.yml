@@ -35,3 +35,13 @@ jobs:
         run: yarn
       - name: Run checking format of files
         run: yarn prettier --config .prettierrc.yml --check '**/*.ts'
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install packages
+        run: yarn
+      - name: Run tests
+        run: yarn test
