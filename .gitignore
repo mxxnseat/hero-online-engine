@@ -8,3 +8,9 @@ node_modules
 !/**/.yarn/cache
 
 .idea
+
+.nyc_output
+.nyc_output_unit
+coverage
+
+dist
